@@ -19,6 +19,7 @@ public class Principal {
             System.out.println("4. Eliminar última nota");
             System.out.println("5. Mostrar todas las notas");
             System.out.println("6. Salir");
+            System.out.println("7. Evaluar grupo");
             System.out.print("Opción: ");
 
             opcion = sc.nextInt();
@@ -39,7 +40,10 @@ public class Principal {
                 gestor.mostrarNotas();
             } else if (opcion == 6) {
                 System.out.println("Saliendo del programa...");
-            } else {
+            } else if (opcion == 7) {
+                System.out.println(gestor.evaluarGrupo());
+            }
+            else {
                 System.out.println("Opción inválida. Inténtalo de nuevo.");
             }
 

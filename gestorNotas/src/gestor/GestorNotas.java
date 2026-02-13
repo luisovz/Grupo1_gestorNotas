@@ -58,4 +58,43 @@ public class GestorNotas {
         }
         return aprobados;
     }
+    
+    public String evaluarGrupo() {
+
+        if (contador == 0) {
+            return "No hay notas registradas.";
+        }
+
+        int aprobados = 0;
+        int suspensos = 0;
+        double suma = 0;
+
+        for (int i = 0; i < contador; i++) {
+
+            suma += notas[i];
+
+            if (notas[i] >= 5) {
+                aprobados++;
+            } else {
+                suspensos++;
+            }
+
+            if (notas[i] < 0 || notas[i] > 10) {
+                return "Existen notas fuera de rango.";
+            }
+        }
+
+        double promedio = suma / contador;
+
+        if (promedio >= 8 && suspensos == 0) {
+            return "Grupo excelente.";
+        } else if (promedio >= 5 && aprobados > suspensos) {
+            return "Grupo aceptable.";
+        } else if (promedio < 5 && suspensos > aprobados) {
+            return "Grupo con dificultades.";
+        } else {
+            return "Situación irregular.";
+        }
+    }
+
 }
