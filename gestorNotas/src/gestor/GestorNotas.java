@@ -11,10 +11,12 @@ public class GestorNotas {
     }
 
     public void agregarNota(double nota) {
-        notas[contador] = nota;
-        contador++;
+        // Solo añadimos esta validación para que no explote al llegar a 5
+        if (contador < notas.length) {
+            notas[contador] = nota;
+            contador++;
+        }
     }
-
     public double calcularPromedio() {
         double suma = 0;
         for (int i = 0; i < notas.length; i++) {
