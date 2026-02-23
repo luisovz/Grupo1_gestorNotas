@@ -28,6 +28,8 @@ public class GestorNotas {
         return suma / contador;
     }
     public double obtenerNotaMaxima() {
+        if (contador == 0) return 0; // Evitamos error si no hay notas
+        
         double max = notas[0];
         for (int i = 1; i < contador; i++) {
             if (notas[i] > max) {
@@ -74,15 +76,7 @@ public class GestorNotas {
         double suma = 0;
 
         for (int i = 0; i < contador; i++) {
-
-            suma += notas[i];
-
-            if (notas[i] >= 5) {
-                aprobados++;
-            } else {
-                suspensos++;
-            }
-
+            //  corregido para que fufncione bien en el flujoo
             if (notas[i] < 0 || notas[i] > 10) {
                 return "Existen notas fuera de rango.";
             }
