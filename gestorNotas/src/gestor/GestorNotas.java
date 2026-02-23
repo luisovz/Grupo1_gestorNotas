@@ -21,7 +21,7 @@ public class GestorNotas {
         if (contador == 0) return 0; // Evitamos división por cero
         
         double suma = 0;
-        // Cambiamos notas.length por contador para que la media sea real
+        // Cambiamos notas.length por contador para que la media sea reall
         for (int i = 0; i < contador; i++) {
             suma += notas[i];
         }
