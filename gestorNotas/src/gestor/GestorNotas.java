@@ -18,13 +18,15 @@ public class GestorNotas {
         }
     }
     public double calcularPromedio() {
+        if (contador == 0) return 0; // Evitamos división por cero
+        
         double suma = 0;
-        for (int i = 0; i < notas.length; i++) {
+        // Cambiamos notas.length por contador para que la media sea real
+        for (int i = 0; i < contador; i++) {
             suma += notas[i];
         }
-        return suma / notas.length;
+        return suma / contador;
     }
-
     public double obtenerNotaMaxima() {
         double max = notas[0];
         for (int i = 1; i < contador; i++) {
