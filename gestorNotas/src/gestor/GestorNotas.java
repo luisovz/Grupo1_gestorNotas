@@ -66,7 +66,6 @@ public class GestorNotas {
     }
     
     public String evaluarGrupo() {
-
         if (contador == 0) {
             return "No hay notas registradas.";
         }
@@ -75,15 +74,25 @@ public class GestorNotas {
         int suspensos = 0;
         double suma = 0;
 
+        // Bucle corregido para calcular datos reales
         for (int i = 0; i < contador; i++) {
-            //  corregido para que fufncione bien en el flujoo
             if (notas[i] < 0 || notas[i] > 10) {
                 return "Existen notas fuera de rango.";
             }
+            
+            // Actualizamos los contadores y la suma
+            suma += notas[i];
+            if (notas[i] >= 5) {
+                aprobados++;
+            } else {
+                suspensos++;
+            }
         }
 
+        // Calculamos el promedio real después del bucle
         double promedio = suma / contador;
 
+        // Evaluación lógica
         if (promedio >= 8 && suspensos == 0) {
             return "Grupo excelente.";
         } else if (promedio >= 5 && aprobados > suspensos) {
